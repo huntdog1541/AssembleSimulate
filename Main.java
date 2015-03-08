@@ -10,6 +10,10 @@ public class Main {
 
     public static void main(String args[])
     {
+
         System.out.println("Hello World");
+        Register reg = new Register(44);
+        reg.printStoreValue();
+        reg.addToString();
     }
 }
