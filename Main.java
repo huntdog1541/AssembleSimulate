@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String args[])
     {
-
+        Display dsp = new Display();
         System.out.println("Hello World");
         Register reg = new Register(44);
         reg.updateNumber(16);
