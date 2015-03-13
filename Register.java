@@ -12,7 +12,7 @@ public class Register {
     {
         value = 0;
         btSt = Integer.toBinaryString(value);
-        bitString = new char[64];
+        bitString = new char[32];
         bitString = btSt.toCharArray();
         valueSize = 64;
     }
@@ -21,7 +21,7 @@ public class Register {
     {
         value = num;
         btSt = Integer.toBinaryString(value);
-        bitString = new char[64];
+        bitString = new char[32];
         bitString = btSt.toCharArray();
         valueSize = 64;
     }
@@ -50,7 +50,7 @@ public class Register {
         {
             tempString[i] = 0;
         }
-        System.out.println("The binary strin is " + tempString);
+        System.out.println("The binary string is " + tempString);
     }
 
 
