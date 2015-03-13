@@ -13,7 +13,6 @@ public class Main {
 
         System.out.println("Hello World");
         Register reg = new Register(44);
-        reg.printStoreValue();
-        reg.addToString();
+        reg.updateNumber(16);
     }
 }

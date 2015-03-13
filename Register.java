@@ -14,7 +14,8 @@ public class Register {
         btSt = Integer.toBinaryString(value);
         bitString = new char[32];
         bitString = btSt.toCharArray();
-        valueSize = 64;
+        valueSize = 32;
+        addToString();
     }
 
     public Register(int num)
@@ -23,35 +24,76 @@ public class Register {
         btSt = Integer.toBinaryString(value);
         bitString = new char[32];
         bitString = btSt.toCharArray();
-        valueSize = 64;
-    }
-
-    public void printStoreValue()
-    {
-        System.out.println("The stored number is " + value + " as " + btSt + "\n");
-        System.out.println("The count is " + Integer.bitCount(value));
-        System.out.println("The Trailing zeros is " + Integer.numberOfTrailingZeros(value));
-        System.out.println("The Leading zeros is " + Integer.numberOfLeadingZeros(value));
-        for(char temp2 : bitString)
-        {
-            System.out.print(temp2 + "  ");
-        }
+        valueSize = 32;
+        addToString();
     }
 
     public void addToString()
     {
         char[] tempString = new char[32];
         int i;
-        for(i = bitString.length; i > 0; i--)
+        int j = valueSize-1;
+        for(i = bitString.length-1; i >= 0; i--)
         {
-            tempString[i] = bitString[i];
+            tempString[j] = bitString[i];
+            j--;
         }
-        for(i = (bitString.length-i); i > 0; i-- )
+        for(i = j; i >= 0; i-- )
         {
-            tempString[i] = 0;
+            tempString[i] = '0';
         }
-        System.out.println("The binary string is " + tempString);
+        convertToString(tempString);
+    }
+    
+    public void convertToString(char[] arry)
+    {
+    	StringBuilder sb = new StringBuilder();
+    	for(char temp : arry)
+    	{
+    		sb.append(temp);
+    	}
+    	btSt = sb.toString();
     }
 
+    public void updateNumber(int number)
+    {
+    	value = number;
+        btSt = Integer.toBinaryString(value);
+        bitString = new char[32];
+        bitString = btSt.toCharArray();
+        addToString();
+    }
+    
+    public void update()
+    {
+    	btSt = Integer.toBinaryString(value);
+        bitString = new char[32];
+        bitString = btSt.toCharArray();
+        addToString();
+    }
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+	public String getBtSt() {
+		return btSt;
+	}
+
+	public void setBtSt(String btSt) {
+		this.btSt = btSt;
+	}
+
+	public int getValueSize() {
+		return valueSize;
+	}
+
+	public void setValueSize(int valueSize) {
+		this.valueSize = valueSize;
+	}    
 
 }
