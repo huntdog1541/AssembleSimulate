@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 public class GUI extends JPanel {
+<<<<<<< HEAD
     private JTextArea codeArea;
     private JMenuBar jcomp2;
     private JTextField eaxRegister;
@@ -25,12 +26,38 @@ public class GUI extends JPanel {
     private JTextField esiRegister;
     private JLabel ediLabel;
     private JTextField ediRegister;
+=======
+    private JMenuBar menuBar;
+    private JTextArea codeArea;
+    private JLabel axLabel;
+    private JTextField axField;
+    private JLabel bxLabel;
+    private JTextField bxField;
+    private JLabel cxLabel;
+    private JTextField cxField;
+    private JLabel dxLabel;
+    private JTextField dxField;
+    private JLabel bpLabel;
+    private JTextField bpField;
+    private JLabel siLabel;
+    private JTextField siField;
+    private JLabel diLabel;
+    private JTextField diField;
+    private JLabel spLabel;
+    private JTextField spField;
+    private JButton parseButton;
+>>>>>>> origin/master
 
     public GUI() {
         //construct preComponents
         JMenu fileMenu = new JMenu ("File");
+<<<<<<< HEAD
         JMenuItem new_applicationItem = new JMenuItem ("New Application");
         fileMenu.add (new_applicationItem);
+=======
+        JMenuItem newItem = new JMenuItem ("New");
+        fileMenu.add (newItem);
+>>>>>>> origin/master
         JMenuItem openItem = new JMenuItem ("Open");
         fileMenu.add (openItem);
         JMenuItem saveItem = new JMenuItem ("Save");
@@ -40,12 +67,16 @@ public class GUI extends JPanel {
         JMenuItem exitItem = new JMenuItem ("Exit");
         fileMenu.add (exitItem);
         JMenu helpMenu = new JMenu ("Help");
+<<<<<<< HEAD
         JMenuItem contentsItem = new JMenuItem ("Contents");
         helpMenu.add (contentsItem);
+=======
+>>>>>>> origin/master
         JMenuItem aboutItem = new JMenuItem ("About");
         helpMenu.add (aboutItem);
 
         //construct components
+<<<<<<< HEAD
         codeArea = new JTextArea (5, 5);
         jcomp2 = new JMenuBar();
         jcomp2.add (fileMenu);
@@ -114,4 +145,75 @@ public class GUI extends JPanel {
 
 
 
+=======
+        menuBar = new JMenuBar();
+        menuBar.add (fileMenu);
+        menuBar.add (helpMenu);
+        codeArea = new JTextArea (5, 5);
+        axLabel = new JLabel ("  AX");
+        axField = new JTextField (5);
+        bxLabel = new JLabel ("  BX");
+        bxField = new JTextField (5);
+        cxLabel = new JLabel ("  CX");
+        cxField = new JTextField (5);
+        dxLabel = new JLabel ("  DX");
+        dxField = new JTextField (5);
+        bpLabel = new JLabel ("  BP");
+        bpField = new JTextField (5);
+        siLabel = new JLabel ("  SI");
+        siField = new JTextField (5);
+        diLabel = new JLabel ("  DI");
+        diField = new JTextField (5);
+        spLabel = new JLabel ("  SP");
+        spField = new JTextField (5);
+        parseButton = new JButton ("Parse Text");
+
+        //adjust size and set layout
+        setPreferredSize (new Dimension (824, 554));
+        setLayout (null);
+
+        //add components
+        add (menuBar);
+        add (codeArea);
+        add (axLabel);
+        add (axField);
+        add (bxLabel);
+        add (bxField);
+        add (cxLabel);
+        add (cxField);
+        add (dxLabel);
+        add (dxField);
+        add (bpLabel);
+        add (bpField);
+        add (siLabel);
+        add (siField);
+        add (diLabel);
+        add (diField);
+        add (spLabel);
+        add (spField);
+        add (parseButton);
+
+        //set component bounds (only needed by Absolute Positioning)
+        menuBar.setBounds (0, 0, 824, 25);
+        codeArea.setBounds (0, 25, 585, 530);
+        axLabel.setBounds (590, 25, 100, 25);
+        axField.setBounds (590, 50, 100, 25);
+        bxLabel.setBounds (590, 75, 100, 25);
+        bxField.setBounds (590, 100, 100, 25);
+        cxLabel.setBounds (590, 125, 100, 25);
+        cxField.setBounds (590, 150, 100, 25);
+        dxLabel.setBounds (590, 175, 100, 25);
+        dxField.setBounds (590, 200, 100, 25);
+        bpLabel.setBounds (590, 225, 100, 25);
+        bpField.setBounds (590, 250, 100, 25);
+        siLabel.setBounds (590, 275, 100, 25);
+        siField.setBounds (590, 300, 100, 25);
+        diLabel.setBounds (590, 325, 100, 25);
+        diField.setBounds (590, 350, 100, 25);
+        spLabel.setBounds (590, 375, 100, 25);
+        spField.setBounds (590, 400, 100, 25);
+        parseButton.setBounds (590, 525, 100, 25);
+    }
+
+>>>>>>> origin/master
 }
