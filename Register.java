@@ -26,6 +26,7 @@ public class Register {
         bitString = btSt.toCharArray();
         valueSize = 32;
         addToString();
+        getIntFromByte();
     }
 
     public void addToString()
@@ -43,6 +44,8 @@ public class Register {
             tempString[i] = '0';
         }
         convertToString(tempString);
+        System.out.println("The string is " + btSt);
+        updateByteArray();
     }
     
     public void convertToString(char[] arry)
@@ -68,8 +71,31 @@ public class Register {
     {
     	btSt = Integer.toBinaryString(value);
         bitString = new char[32];
-        bitString = btSt.toCharArray();
         addToString();
+        updateByteArray();
+    }
+
+    public void getIntFromByte()
+    {
+        int i, temp = 1, ans = 0;
+        System.out.println("The string: " + bitString.toString());
+        for(i = 0; i < bitString.length; i++)
+        {
+            if(bitString[i] == '1')
+                ans = ans + temp;
+            System.out.println("i: " + i + " ans: " + ans);
+            temp = temp * 2;
+        }
+        System.out.println("The value of int from byte: " + ans);
+    }
+
+    public void updateByteArray()
+    {
+        int i = 0;
+        for(i = 0; i < btSt.length(); i++)
+        {
+            bitString[i] = btSt.charAt(i);
+        }
     }
 
 	public int getValue() {
