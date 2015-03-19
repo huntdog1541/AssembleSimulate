@@ -14,7 +14,7 @@ public class Main {
     {
 
         System.out.println("Hello World");
-        Register reg = new Register(44);
+        Register reg = new Register(57);
         JFrame frame = new JFrame ("Assemble Simulator");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new GUI());
