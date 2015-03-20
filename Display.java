@@ -7,10 +7,10 @@ public class Display {
 
     public Display()
     {
-        JFrame frame = new JFrame ("GUI");
+       /* JFrame frame = new JFrame ("GUI");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new GUI());
         frame.pack();
-        frame.setVisible (true);
+        frame.setVisible (true);*/
     }
 }

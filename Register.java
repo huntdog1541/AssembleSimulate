@@ -7,9 +7,21 @@ public class Register {
     private char[] bitString;
     private String btSt;
     private int valueSize;
+    private String regName;
 
     public Register()
     {
+        value = 0;
+        btSt = Integer.toBinaryString(value);
+        bitString = new char[32];
+        bitString = btSt.toCharArray();
+        valueSize = 32;
+        addToString();
+    }
+
+    public Register(String name)
+    {
+        regName = name;
         value = 0;
         btSt = Integer.toBinaryString(value);
         bitString = new char[32];
@@ -27,6 +39,17 @@ public class Register {
         valueSize = 32;
         addToString();
         getIntFromByte();
+    }
+
+    public Register(String name, int num)
+    {
+        regName = name;
+        value = num;
+        btSt = Integer.toBinaryString(value);
+        bitString = new char[32];
+        bitString = btSt.toCharArray();
+        valueSize = 32;
+        addToString();
     }
 
     public void addToString()
@@ -131,4 +154,11 @@ public class Register {
 		this.valueSize = valueSize;
 	}    
 
+    public boolean compareString(String temp)
+    {
+        boolean ans = false;
+        if(regName.equals(temp))
+            ans = true;
+        return ans;
+    }
 }

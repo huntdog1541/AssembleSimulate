@@ -44,9 +44,11 @@ public class GUI extends JPanel {
     private JLabel spLabel;
     private JTextField spField;
     private JButton parseButton;
+    private VM virt;
 
-    public GUI() {
+    public GUI(VM vt) {
         //construct preComponents
+        virt = vt;
         JMenu fileMenu = new JMenu ("File");
         JMenuItem new_applicationItem = new JMenuItem ("New Application");
         fileMenu.add (new_applicationItem);
@@ -89,6 +91,11 @@ public class GUI extends JPanel {
         esiRegister = new JTextField (5);
         ediLabel = new JLabel ("  EDI");
         ediRegister = new JTextField (5);
+
+        eaxRegister.setEditable(false);
+        Register temp = virt.getRegister("EAX");
+        eaxRegister.setText(Integer.toString(temp.getValue()));
+        ebxRegister.setEditable(false);
 
         //adjust size and set layout
         setPreferredSize (new Dimension (784, 454));
