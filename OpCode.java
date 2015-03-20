@@ -10,13 +10,8 @@ public class OpCode {
 
     public void executeCode(String opc, String[] restOfString, VM virt)
     {
-        switch(opc)
-        {
-            case "ADD" : add(restOfString, virt);
-              break;
-            case "SUB":
-                break;
-        }
+         if(opc.equals("ADD"))
+             add(restOfString, virt);
     }
 
     public void add(String[] rest, VM virt)
