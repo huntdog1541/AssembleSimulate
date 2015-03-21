@@ -13,7 +13,6 @@ public class Main {
     public static void main(String args[])
     {
         VM virt = new VM();
-        System.out.println("Hello World");
         Register reg = new Register(57);
         JFrame frame = new JFrame ("Assemble Simulator");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
