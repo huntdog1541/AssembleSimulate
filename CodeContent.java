@@ -11,19 +11,28 @@ public class CodeContent {
     private File fle;
     private BufferedReader flread;
     private StringBuilder sb;
+    private Code code;
 
-    public CodeContent()
-    {
-        try{
+    public CodeContent() {
+        try {
             flread = new BufferedReader(new FileReader("assmb.txt"));
             sb = new StringBuilder();
             getCode();
-        }
-        catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
 
         }
+    }
 
+    public CodeContent(Code temp)
+    {
+        code = temp;
+        try {
+            flread = new BufferedReader(new FileReader("assmb.txt"));
+            sb = new StringBuilder();
+            getCode();
+        } catch (FileNotFoundException e) {
+
+        }
     }
 
     public CodeContent(String fileName)
@@ -39,8 +48,7 @@ public class CodeContent {
             temp = flread.readLine();
             while(temp != null)
             {
-                sb.append(temp);
-                sb.append("\n");
+                code.addString(temp);
                 temp = flread.readLine();
             }
         }
@@ -48,8 +56,6 @@ public class CodeContent {
         {
 
         }
-
-        System.out.println(sb.toString());
     }
 
 }

@@ -11,6 +11,8 @@ public class VM {
     private Register edx = new Register("EDX");
     private ArrayList<Register> allregisters;
     private OpCode op = new OpCode();
+    private Code code = new Code();
+    private CodeContent cc;
 
     public VM() {
         allregisters = new ArrayList<Register>();
@@ -18,6 +20,13 @@ public class VM {
         allregisters.add(ebx);
         allregisters.add(ecx);
         allregisters.add(edx);
+    }
+
+    public void getCode()
+    {
+        cc = new CodeContent(code);
+        cc.getCode();
+        code.printStrings();
     }
 
     public void runCode(String opc, String[] restOfString) {
