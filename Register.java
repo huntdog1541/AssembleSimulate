@@ -4,18 +4,21 @@
 public class Register {
 
     private int value;
-    private char[] bitString;
-    private String btSt;
+    private char[] bit32;
+    private char[] bit64;
+    private String bitString32;
+    private String bitString64;
     private int valueSize;
     private String regName;
 
     public Register()
     {
         value = 0;
-        btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
-        bitString = btSt.toCharArray();
-        valueSize = 32;
+        bitString64 = Integer.toBinaryString(value);
+        bit32 = new char[32];
+        bit64 = new char[64];
+        bit64 = bitString64.toCharArray();
+        valueSize = 64;
         addToString();
     }
 
@@ -23,20 +26,22 @@ public class Register {
     {
         regName = name;
         value = 0;
-        btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
-        bitString = btSt.toCharArray();
-        valueSize = 32;
+        bitString64 = Integer.toBinaryString(value);
+        bit32 = new char[32];
+        bit64 = new char[64];
+        bit64 = bitString64.toCharArray();
+        valueSize = 64;
         addToString();
     }
 
     public Register(int num)
     {
         value = num;
-        btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
-        bitString = btSt.toCharArray();
-        valueSize = 32;
+        bitString64 = Integer.toBinaryString(value);
+        bit32 = new char[32];
+        bit64 = new char[64];
+        bit64 = bitString64.toCharArray();
+        valueSize = 64;
         addToString();
         getIntFromByte();
     }
@@ -45,21 +50,22 @@ public class Register {
     {
         regName = name;
         value = num;
-        btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
-        bitString = btSt.toCharArray();
-        valueSize = 32;
+        bitString64 = Integer.toBinaryString(value);
+        bit32 = new char[32];
+        bit64 = new char[64];
+        bit64 = bitString64.toCharArray();
+        valueSize = 64;
         addToString();
     }
 
     public void addToString()
     {
-        char[] tempString = new char[32];
+        char[] tempString = new char[64];
         int i;
         int j = valueSize-1;
-        for(i = bitString.length-1; i >= 0; i--)
+        for(i = bit64.length-1; i >= 0; i--)
         {
-            tempString[j] = bitString[i];
+            tempString[j] = bit64[i];
             j--;
         }
         for(i = j; i >= 0; i-- )
@@ -67,7 +73,7 @@ public class Register {
             tempString[i] = '0';
         }
         convertToString(tempString);
-        System.out.println("The string is " + btSt);
+        System.out.println("The string is " + bitString64);
         updateByteArray();
     }
     
@@ -78,22 +84,22 @@ public class Register {
     	{
     		sb.append(temp);
     	}
-    	btSt = sb.toString();
+    	bitString64 = sb.toString();
     }
 
     public void updateNumber(int number)
     {
     	value = number;
-        btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
-        bitString = btSt.toCharArray();
+        bitString64 = Integer.toBinaryString(value);
+        bit64 = new char[64];
+        bit64 = bitString64.toCharArray();
         addToString();
     }
     
     public void update()
     {
-    	btSt = Integer.toBinaryString(value);
-        bitString = new char[32];
+    	bitString64 = Integer.toBinaryString(value);
+        bit64 = new char[64];
         addToString();
         updateByteArray();
     }
@@ -101,9 +107,9 @@ public class Register {
     public void getIntFromByte()
     {
         int i, temp = 1, ans = 0;
-        for(i = (bitString.length - 1); i > 0 ; i--)
+        for(i = (bit64.length - 1); i > 0 ; i--)
         {
-            if(bitString[i] == '1')
+            if(bit64[i] == '1')
                 ans = ans + temp;
             temp = temp * 2;
         }
@@ -113,20 +119,20 @@ public class Register {
     public void updateByteArray()
     {
         int i = 0;
-        bitString = new char[btSt.length()];
+        bit64 = new char[bitString64.length()];
         clearArray();
-        for(i = (bitString.length - 1); i > 0; i--)
+        for(i = (bit64.length - 1); i > 0; i--)
         {
-            bitString[i] = btSt.charAt(i);
+            bit64[i] = bitString64.charAt(i);
         }
     }
     
     public void clearArray()
     {
     	int i;
-    	for(i = 0; i < bitString.length; i++)
+    	for(i = 0; i < bit64.length; i++)
     	{
-    		bitString[i] = 0;
+    		bit64[i] = '0';
     	}
     }
 
@@ -136,14 +142,6 @@ public class Register {
 
 	public void setValue(int value) {
 		this.value = value;
-	}
-
-	public String getBtSt() {
-		return btSt;
-	}
-
-	public void setBtSt(String btSt) {
-		this.btSt = btSt;
 	}
 
 	public int getValueSize() {
