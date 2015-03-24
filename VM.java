@@ -25,7 +25,6 @@ public class VM {
     public void getCode()
     {
         cc = new CodeContent(code);
-        cc.getCode();
         code.printStrings();
     }
 
