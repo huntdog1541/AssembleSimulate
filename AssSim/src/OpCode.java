@@ -47,8 +47,8 @@ public class OpCode {
             Register store = virt.getRegister(rest[0]);
             Register source1 = virt.getRegister(rest[1]);
             Register source2 = virt.getRegister(rest[2]);
-            char[] by1 = source1.getBtSt().toCharArray();
-            char[] by2 = source2.getBtSt().toCharArray();
+            char[] by1 = source1.getBitString64().toCharArray();
+            char[] by2 = source2.getBitString64().toCharArray();
             char[] by3 = compareBytesAND(by1, by2);
 
         }

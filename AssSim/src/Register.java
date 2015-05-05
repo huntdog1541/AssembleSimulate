@@ -159,4 +159,20 @@ public class Register {
             ans = true;
         return ans;
     }
+
+    public String getBitString32() {
+        return bitString32;
+    }
+
+    public void setBitString32(String bitString32) {
+        this.bitString32 = bitString32;
+    }
+
+    public String getBitString64() {
+        return bitString64;
+    }
+
+    public void setBitString64(String bitString64) {
+        this.bitString64 = bitString64;
+    }
 }
