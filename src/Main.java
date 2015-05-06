@@ -13,7 +13,8 @@ public class Main {
     public static void main(String args[])
     {
         VM virt = new VM();
-        Register reg = new Register(57);
+        Register reg = new Register(34);
+        System.out.println("The hex for number 32 is " + reg.convertToHex(32));
         JFrame frame = new JFrame ("Assemble Simulator");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new GUI(virt));
